@@ -1,5 +1,5 @@
 {
-  "name": "masonry",
+  "name": "@lanthings/masonry",
   "version": "0.0.1",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
@@ -26,13 +26,17 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.16.1"
+    "@stencil/core": "^2.16.1",
+    "@stencil/state-tunnel": "^1.0.1",
+    "@types/masonry-layout": "^4.2.5",
+    "masonry-layout": "^4.2.2"
   },
   "devDependencies": {
     "@types/jest": "^27.5.2",
     "jest": "^27.5.1",
     "jest-cli": "^27.5.1",
-    "puppeteer": "^10.4.0"
+    "puppeteer": "^10.4.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "license": "MIT"
 }

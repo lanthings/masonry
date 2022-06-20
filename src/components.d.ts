@@ -5,57 +5,82 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { Options } from "masonry-layout";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface LanMasonry {
+        "appended": (element: HTMLElement) => Promise<void>;
+        "destroy": () => Promise<void>;
+        "getItemElements": () => Promise<any>;
+        "layout": () => Promise<void>;
+        "masonry": () => Promise<void>;
+        "options": Options;
+        "reloadItems": () => Promise<void>;
+        "rm": (element: HTMLElement) => Promise<void>;
+        "useImagesLoaded": boolean;
+    }
+    interface LanMasonryItem {
+        "add": (el: HTMLElement) => void;
+        "layout": () => void;
+        "rm": (el: HTMLElement) => void;
+        "size"?: string;
+        "sizeLg"?: string;
+        "sizeMd"?: string;
+        "sizeSm"?: string;
+        "sizeXl"?: string;
+        "sizeXs"?: string;
     }
 }
+export interface LanMasonryCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLLanMasonryElement;
+}
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLLanMasonryElement extends Components.LanMasonry, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLLanMasonryElement: {
+        prototype: HTMLLanMasonryElement;
+        new (): HTMLLanMasonryElement;
+    };
+    interface HTMLLanMasonryItemElement extends Components.LanMasonryItem, HTMLStencilElement {
+    }
+    var HTMLLanMasonryItemElement: {
+        prototype: HTMLLanMasonryItemElement;
+        new (): HTMLLanMasonryItemElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "lan-masonry": HTMLLanMasonryElement;
+        "lan-masonry-item": HTMLLanMasonryItemElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface LanMasonry {
+        "onLayoutComplete"?: (event: LanMasonryCustomEvent<any>) => void;
+        "onRemoveComplete"?: (event: LanMasonryCustomEvent<any>) => void;
+        "options"?: Options;
+        "useImagesLoaded"?: boolean;
+    }
+    interface LanMasonryItem {
+        "add"?: (el: HTMLElement) => void;
+        "layout"?: () => void;
+        "rm"?: (el: HTMLElement) => void;
+        "size"?: string;
+        "sizeLg"?: string;
+        "sizeMd"?: string;
+        "sizeSm"?: string;
+        "sizeXl"?: string;
+        "sizeXs"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "lan-masonry": LanMasonry;
+        "lan-masonry-item": LanMasonryItem;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "lan-masonry": LocalJSX.LanMasonry & JSXBase.HTMLAttributes<HTMLLanMasonryElement>;
+            "lan-masonry-item": LocalJSX.LanMasonryItem & JSXBase.HTMLAttributes<HTMLLanMasonryItemElement>;
         }
     }
 }

@@ -1,0 +1,44 @@
+:host {
+    display: block;
+    width: calc(calc(var(--size, 12) / var(--lan-masonry-columns, 12)) * 100%);
+    max-width: calc(calc(var(--size, 12) / var(--lan-masonry-columns, 12)) * 100%);
+    float: left;
+}
+
+.container {
+    padding-top: var(--lan-masonry-item-padding-top, var(--lan-masonry-item-padding, 5px));
+    padding-left: var(--lan-masonry-item-padding-left, var(--lan-masonry-item-padding, 5px));
+    padding-bottom: var(--lan-masonry-item-padding-bottom, var(--lan-masonry-item-padding, 5px));
+    padding-right: var(--lan-masonry-item-padding-right, var(--lan-masonry-item-padding, 5px));
+}
+
+/* xs */
+@media screen and (min-width: 0px) {
+    :host {
+        --size: var(--lan-masonry-item-size-xs, var(--lan-masonry-item-size, var(--lan-masonry-columns)));
+    }
+}
+/* sm */
+@media screen and (min-width: 576px) {
+    :host {
+        --size: var(--lan-masonry-item-size-sm, var(--lan-masonry-item-size-xs, var(--lan-masonry-item-size, var(--lan-masonry-columns))));
+    }
+}
+/* md */
+@media screen and (min-width: 768px) {
+    :host {
+        --size: var(--lan-masonry-item-size-md, var(--lan-masonry-item-size-sm, var(--lan-masonry-item-size-xs, var(--lan-masonry-item-size, var(--lan-masonry-columns)))));
+    }
+}
+/* lg */
+@media screen and (min-width: 992px) {
+    :host {
+        --size: var(--lan-masonry-item-size-lg, var(--lan-masonry-item-size-md, var(--lan-masonry-item-size-sm, var(--lan-masonry-item-size-xs, var(--lan-masonry-item-size, var(--lan-masonry-columns))))));
+    }
+}
+/* xl */
+@media screen and (min-width: 1200px) {
+    :host {
+        --size: var(--lan-masonry-item-size-xl, var(--lan-masonry-item-size-lg, var(--lan-masonry-item-size-md, var(--lan-masonry-item-size-sm, var(--lan-masonry-item-size-xs, var(--lan-masonry-item-size, var(--lan-masonry-columns)))))));
+    }
+}

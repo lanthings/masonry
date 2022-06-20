@@ -7,8 +7,170 @@
 
     <script type="module" src="/build/masonry.esm.js"></script>
     <script nomodule src="/build/masonry.js"></script>
+
+
+    <!-- Import Ionic -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <!-- Optional, import the Ionic icons -->
+    <script type="module" src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@latest/dist/ionicons/ionicons.js"></script>
+
+    <!-- <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script> -->
+    <!-- <script src="https://masonry.desandro.com/masonry.pkgd.js"></script> -->
+
+    <script>
+      // setTimeout(function() {
+
+      //   var lanMasonry = document.getElementsByTagName('lan-masonry')[0];
+      //   lanMasonry.removeChild(lanMasonry.firstElementChild);
+      //   lanMasonry.removeChild(lanMasonry.firstElementChild);
+
+      //   setTimeout(function() {
+      //     lanMasonry.appendChild(lanMasonry.firstElementChild.cloneNode(true));
+      //     lanMasonry.appendChild(lanMasonry.firstElementChild.cloneNode(true));
+      //   }, 2000);
+      // }, 2000);
+
+      function update(event) {
+
+        var lanMasonry = document.getElementsByTagName('lan-masonry')[0];
+        // lanMasonry.appendChild(lanMasonry.firstElementChild.cloneNode(true));
+
+
+        add(lanMasonry);
+
+        // remove(lanMasonry);
+
+        // destroyAndLayout(lanMasonry);
+
+        // updateOptions(lanMasonry, { 'percentPosition': true, 'horizontalOrder': true });
+
+        // resize(event.target);
+      }
+
+      function add(lanMasonry) {
+        lanMasonry.appended(lanMasonry.firstElementChild.cloneNode(true));
+      }
+
+      function remove(lanMasonry) {
+        lanMasonry.rm(lanMasonry.firstElementChild);
+      }
+
+      function destroyAndLayout(lanMasonry) {
+        lanMasonry.destroy();
+        setTimeout(function() {
+          lanMasonry.masonry();
+        }, 1000);
+      }
+
+      function updateOptions(lanMasonry, options) {
+        lanMasonry.options= options;
+      };
+
+      function resize(target) {
+        target.style.height = '400px';
+      }
+    </script>
+
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+
+    <!-- <lan-masonry>
+      <lan-masonry-item size="1">
+        <div style="border-style: solid">
+            A
+        </div>
+      </lan-masonry-item>
+      <lan-masonry-item size="1">
+        <div style="border-style: solid">
+            B
+        </div>
+      </lan-masonry-item>
+    </lan-masonry>
+    <br>
+    <br> -->
+    <ion-app>
+      <ion-content>
+    <!-- <lan-masonry options='{ "horizontalOrder": false }'> -->
+      <div>
+        <lan-masonry>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid; height: 20%;">
+                A
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid; height: 200px;">
+                B
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid; height: 500px;">
+                C
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid; height: 20%;">
+                D
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                E
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                F
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid; height: 150px;" >
+                G
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                H
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                I
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                J
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                K
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                L
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                M
+            </div>
+          </lan-masonry-item>
+          <lan-masonry-item size="12" size-sm="6" size-md="4" onclick="update(event)">
+            <div style="border-style: solid">
+                N
+            </div>
+          </lan-masonry-item>
+        </lan-masonry>
+      </div>
+    </ion-content>
+    </ion-app>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+
   </body>
 </html>
