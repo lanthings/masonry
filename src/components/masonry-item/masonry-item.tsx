@@ -29,9 +29,9 @@ export class MasonryItem {
   @Prop() sizeXl?: string;
 
 
-  @Prop() add: (el: HTMLElement) => void;
-  @Prop() rm: (el: HTMLElement) => void;
-  @Prop() layout: () => void;
+  @Prop({ mutable: true }) add: (el: HTMLElement) => void;
+  @Prop({ mutable: true }) rm: (el: HTMLElement) => void;
+  @Prop({ mutable: true }) layout: () => void;
 
 
   componentDidLoad() {
