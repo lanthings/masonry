@@ -1,5 +1,5 @@
+import { ResizeObserver } from '@juggle/resize-observer';
 import { Component, Element, h, Host, Prop} from '@stencil/core';
-import ResizeObserver from 'resize-observer-polyfill';
 
 
 // custom imports
